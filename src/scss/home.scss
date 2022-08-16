@@ -1,0 +1,804 @@
+
+.main {
+	position: relative;
+	&__wrapper {
+		position: relative;
+		@include adaptiv-value("min-height", 700, 300, 1);
+	}
+
+	&__content {
+		position: relative;
+		z-index: 10;
+	}
+
+	&__container {
+	}
+
+	&__body {
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+		@include adaptiv-value("padding-top", 60, 20, 1);
+		@include adaptiv-value("padding-bottom", 60, 20, 1);
+		@include adaptiv-value("min-height", 700, 400, 1);
+	}
+
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		&::before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			@include adaptiv-value("height", 300, 400, 1);
+			bottom: 0;
+			left: 0;
+			z-index: 2;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 6.5e-5) 0%, rgba(0, 0, 0, 0.65) 100%);
+		}
+	}
+}
+.body-main {
+	@media (min-width: 580px) {
+		max-width: 560px;
+	}
+	&__category {
+		font-family: "PT Sans";
+		font-size: 14px;
+		line-height: 18 / 14 * 100%;
+		text-transform: uppercase;
+		color: $white;
+		transition: all 0.3s ease 0s;
+		&:not(:last-child) {
+			margin: 0px 0px 5px 0px;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+
+	&__title {
+		font-weight: bold;
+		@include adaptiv-font(40, 34, 1);
+		line-height: 50 / 40 * 100%;
+		color: $white;
+		&:not(:last-child) {
+			margin: 0px 0px 10px 0px;
+		}
+	}
+
+	&__bottom {
+		font-size: 14px;
+		line-height: 19px;
+		color: $white;
+		display: flex;
+		align-items: center;
+	}
+
+	&__date {
+		color: inherit;
+		margin: 0px 15px 0px 0px;
+	}
+
+	&__by {
+		color: inherit;
+		margin: 0px 15px 0px 0px;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+		span {
+			color: #b4b4b4;
+			margin: 0px 5px 0px 0px;
+		}
+	}
+
+	&__comments {
+		color: inherit;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+}
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+.body {
+	&__container {
+	}
+	&__wrapper {
+		@media (min-width: $md2+px) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	&__content {
+		@media (min-width: $md2+px) {
+			flex: 0 1 770px;
+			margin: 0px 20px 0px 0px;
+		}
+	}
+
+	&__aside {
+		@media (min-width: $md2+px) {
+			flex: 0 0 270px;
+		}
+	}
+}
+//========================================================================================================================================================
+
+.content-body {
+	&__wrapper {
+		display: flex;
+		margin: 0px -15px;
+		flex-wrap: wrap;
+		justify-content: center;
+		@media (max-width: $md3+px) {
+			margin: 0px -10px;
+		}
+	}
+
+	&__column {
+		flex: 0 1 50%;
+		padding: 0px 15px;
+		margin: 0px 0px 30px 0px;
+		@media (max-width: $md3+px) {
+			padding: 0px 10px;
+			margin: 0px 0px 20px 0px;
+		}
+		@media (max-width: $md4+px) {
+			flex: 1 1 100%;
+		}
+		&_full {
+			flex: 1 1 100%;
+			.content-body__image {
+				padding: 0px 0px 350 / 770 * 100% 0px;
+			}
+			.content-body__body {
+				text-align: left;
+				align-items: flex-start;
+				padding: 25px 30px 25px 30px;
+				@media (max-width: $md3+px) {
+					padding: 15px;
+				}
+			}
+		}
+	}
+
+	&__inner {
+		filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.1));
+		background-color: $white;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		@media (any-hover: hover) {
+			&:hover {
+				.content-body__image {
+					img {
+						transform: scale(1.05);
+					}
+				}
+			}
+		}
+	}
+
+	&__image {
+		display: block;
+		padding: 0px 0px 280 / 370 * 100% 0px;
+		overflow: hidden;
+		img {
+			transition: all 0.3s ease 0s;
+		}
+	}
+	&__body {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 15px 40px 15px 40px;
+		align-items: center;
+		text-align: center;
+		@media (max-width: $md3+px) {
+			padding: 15px;
+		}
+	}
+
+	&__category {
+		display: inline-flex;
+		margin: 0px 0px 4px 0px;
+		font-family: "PT Sans";
+		font-size: 12px;
+		line-height: 16 / 12 * 100%;
+		text-transform: uppercase;
+		color: $gold;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+
+	&__title {
+		flex: 1 1 auto;
+		margin: 0px 0px 10px 0px;
+		font-size: 20px;
+		line-height: 28 / 20 * 100%;
+		a {
+			color: $dark;
+			transition: all 0.3s ease 0s;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $gold;
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		font-size: 12px;
+		line-height: 16 / 12 * 100%;
+		color: $darkGrey;
+		&:not(:last-child) {
+			margin: 0px 0px 15px 0px;
+		}
+	}
+
+	&__date {
+		color: inherit;
+		&:not(:last-child) {
+			margin: 0px 15px 0px 0px;
+		}
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+
+	&__name {
+		color: inherit;
+		transition: all 0.3s ease 0s;
+		&:not(:last-child) {
+			margin: 0px 15px 0px 0px;
+		}
+		span {
+			color: #b1b1b1;
+			margin: 0px 5px 0px 0px;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+	&__comments {
+		color: inherit;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+
+	&__text {
+		font-family: "PT Sans";
+		font-size: 14px;
+		line-height: 24 / 14 * 100%;
+		max-width: 615px;
+		@media (max-width: $md3+px) {
+			max-width: none;
+		}
+	}
+	&__pagination {
+	}
+}
+
+.pagination-fill {
+	display: flex;
+	justify-content: center;
+	height: 50px;
+	border: 1px solid #e5e5e5;
+	padding: 10px 25px;
+	margin: 30px 15px 0px 15px;
+	font-family: "HKGrotesk";
+	color: #a2a2a2;
+	@media (max-width: $md3+px) {
+		padding: 10px 5px 10px 25px;
+	}
+	@media (max-width: $md2+px) {
+		@include adaptiv-value("margin-bottom", 60, 40, 1);
+	}
+	&__list {
+		display: flex;
+		align-items: center;
+	}
+	&__prev {
+		display: flex;
+		align-items: center;
+		margin: 0px 30px 0px 0px;
+		cursor: pointer;
+		font-size: 14px;
+		line-height: 16 / 14 * 100%;
+		position: relative;
+		padding: 0px 0px 0px 20px;
+		transition: all 0.3s ease 0s;
+		@media (max-width: $md3+px) {
+			display: none;
+		}
+		&::after {
+			transform: rotate(90deg);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+	&__number {
+		font-size: 16px;
+		margin: 0px 40px 0px 0px;
+		cursor: pointer;
+		transition: all 0.3s ease 0s;
+		@media (max-width: $md3+px) {
+			margin: 0px 20px 0px 0px;
+		}
+		&._active {
+			color: $dark;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+	&__dots {
+		@include adaptiv-value("margin-right", 40, 15, 1);
+		color: $dark;
+	}
+	&__next {
+		display: flex;
+		cursor: pointer;
+		align-items: center;
+		margin: 0px 0px 0px -10px;
+		transition: all 0.3s ease 0s;
+		&::after {
+			margin: 0px 0px 0px 10px;
+			transform: rotate(-90deg);
+		}
+		@media (max-width: $md3+px) {
+			display: none;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+}
+
+//========================================================================================================================================================
+
+.aside-body {
+	&__wrapper {
+	}
+
+	&__item {
+		@include adaptiv-value("margin-bottom", 70, 30, 1);
+		@media (max-width: $md2+px) {
+			@include adaptiv-value("margin-bottom", 30, 20, 1);
+		}
+	}
+
+	&__label {
+		font-size: 16px;
+		line-height: 21 / 16 * 100%;
+		text-align: center;
+		min-height: 50px;
+		border: 1px solid #e5e5e5;
+		color: $dark;
+		transition: all 0.3s ease 0s;
+		width: 100%;
+		margin: 0px 0px 20px 0px;
+		cursor: text;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0px 15px;
+		&::after {
+			display: none;
+		}
+		@media (max-width: $md2+px) {
+			text-align: left;
+			cursor: pointer;
+			justify-content: space-between;
+			&._active {
+				&::after {
+					transform: rotate(-180deg);
+					color: $gold;
+				}
+			}
+			&::after {
+				display: block;
+				transition: all 0.5s ease 0s;
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					border: 1px solid $dark;
+				}
+			}
+		}
+	}
+
+	&__inner {
+		background-color: $white;
+	}
+
+	&__post {
+	}
+}
+.aside-author {
+	filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.1));
+	text-align: center;
+	&__image {
+		display: block;
+		padding: 0px 0px 180 / 270 * 100% 0px;
+		overflow: hidden;
+		@media (max-width: $md2+px) {
+			padding: 0px 0px 40% 0px;
+		}
+		img {
+			transition: all 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				img {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+
+	&__body {
+		padding: 20px 20px 15px 20px;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	&__name {
+		display: block;
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 21 / 16 * 100%;
+		color: $dark;
+		&:not(:last-child) {
+			margin: 0px 0px 5px 0px;
+		}
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+
+	&__type {
+		font-style: italic;
+		font-size: 14px;
+		line-height: 19 /14 * 100%;
+		color: #b1b1b1;
+		&:not(:last-child) {
+			margin: 0px 0px 15px 0px;
+		}
+	}
+
+	&__text {
+		font-family: "PT Sans";
+		font-size: 14px;
+		line-height: 24 / 14 * 100%;
+		color: $darkGrey;
+	}
+
+	&__continue {
+		display: block;
+		font-size: 12px;
+		line-height: 16 / 12 * 100%;
+		text-transform: uppercase;
+		padding: 12px;
+		color: $gold;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+}
+.post-aside {
+	filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.1));
+	background-color: $white;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	align-items: center;
+	margin: 0px 0px 30px 0px;
+	&__image {
+		padding: 0px 0px 160 / 270 * 100% 0px;
+		width: 100%;
+		display: block;
+		overflow: hidden;
+		@media (max-width: $md2+px) {
+			padding: 0px 0px 40% 0px;
+		}
+		img {
+			transition: all 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				img {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+
+	&__body {
+		padding: 15px 10px;
+	}
+
+	&__category {
+		font-family: "PT Sans";
+		display: inline-flex;
+		margin: 0px 0px 5px 0px;
+		font-size: 12px;
+		line-height: 16 / 12 * 100%;
+		text-transform: uppercase;
+		color: $gold;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $dark;
+			}
+		}
+	}
+
+	&__title {
+		font-size: 18px;
+		line-height: 26 / 18 * 100%;
+		color: $dark;
+		display: inline-flex;
+		flex: 1 1 auto;
+		margin: 0px 0px 10px 0px;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__date {
+		color: $darkGrey;
+		margin: 0px 15px 0px 0px;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+
+	&__by {
+		color: $darkGrey;
+		font-size: 12px;
+		line-height: 16 / 12 * 100%;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+		span {
+			color: #b1b1b1;
+			margin: 0px 5px 0px 0px;
+		}
+	}
+}
+.categories-aside {
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 14px;
+		line-height: 19 / 14 * 100%;
+		color: $darkGrey;
+		transition: all 0.3s ease 0s;
+		&:not(:last-child) {
+			padding: 0px 0px 15px 0px;
+			border-bottom: 1px solid #e5e5e5;
+			margin: 0px 0px 15px 0px;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+
+	&__category {
+		margin: 0px 20px 0px 0px;
+	}
+
+	&__number {
+	}
+}
+.social-aside {
+	&__body {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0px -2px;
+	}
+	&__column {
+		flex: 0 1 33.333%;
+		padding: 0px 2px;
+		margin: 0px 0px 4px 0px;
+	}
+	&__item {
+		padding: 17px 10px 13px 10px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		height: 100%;
+		background-color: #f8f9fa;
+		@media (any-hover: hover) {
+			&:hover {
+				.social-aside__icon {
+					color: $gold;
+				}
+			}
+		}
+	}
+
+	&__icon {
+		&._icon-be {
+			&::before {
+				font-size: 15px;
+			}
+		}
+		margin: 0px 0px 6px 0px;
+		color: #5a5a5a;
+		transition: all 0.3s ease 0s;
+		&::before {
+			font-size: 20px;
+		}
+	}
+
+	&__number,
+	&__text {
+		font-family: "PT Sans";
+		font-size: 12px;
+		line-height: 16 / 12 * 100%;
+		color: #999999;
+	}
+
+	&__text {
+	}
+}
+.tags-aside {
+	&__body {
+		margin: 0px -10px;
+		padding: 0px 0px 0px 10px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	&__tag {
+		margin: 0px 10px 10px 0px;
+		font-size: 14px;
+		line-height: 19 / 14 * 100%;
+		color: $darkGrey;
+		padding: 5px 14px;
+		background: #f8f9fa;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $gold;
+			}
+		}
+	}
+}
+
+//========================================================================================================================================================
+
+.gallery {
+	&__wrapper {
+	}
+
+	&__title {
+		text-align: center;
+		@include adaptiv-value("margin-bottom", 40, 30, 1);
+		font-size: 24px;
+		line-height: 32 / 24 * 100%;
+		a {
+			color: $dark;
+			transition: all 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				a {
+					color: $gold;
+				}
+			}
+		}
+	}
+
+	&__body {
+		padding: 0 20px;
+		display: flex;
+		margin: 0px -10px;
+		@media (max-width: $md1+px) {
+			padding: 0px 15px;
+		}
+		@media (max-width: $md3+px) {
+			flex-wrap: wrap;
+		}
+	}
+
+	&__column {
+		flex: 0 1 16.666%;
+		padding: 0px 10px;
+		@media (max-width: $md2+px) {
+			flex: 1 1 20%;
+			&:nth-child(1) {
+				display: none;
+			}
+		}
+		@media (max-width: $md3+px) {
+			flex: 0 1 50%;
+			margin: 0px 0px 20px 0px;
+			&:nth-child(2) {
+				display: none;
+			}
+		}
+	}
+
+	&__item {
+		display: block;
+		padding: 0px 0px 100% 0px;
+		overflow: hidden;
+		img {
+			transition: all 0.3s ease 0s;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				img {
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+}

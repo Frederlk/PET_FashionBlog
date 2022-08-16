@@ -1,0 +1,99 @@
+.footer {
+    &__container {
+    }
+
+    &__body {
+    }
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include adaptiv-value("margin-bottom", 60, 30, 1);
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include adaptiv-value("margin-bottom", 30, 20, 1);
+        li {
+            &:not(:last-child) {
+                @include adaptiv-value("margin-right", 35, 20, 1);
+            }
+        }
+    }
+
+    &__link {
+        font-family: "PT Sans";
+        font-size: 14px;
+        line-height: 18 / 14 * 100%;
+        color: $darkGrey;
+        transition: all 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media (max-width: $md3+px) {
+            flex-wrap: wrap;
+        }
+        @include adaptiv-value("margin-bottom", 40, 30, 1);
+        @media (max-width: $md3+px) {
+            @include adaptiv-value("margin-bottom", 25, 15, 1);
+        }
+    }
+
+    &__column {
+        flex: 0 0 34px;
+        margin: 0px 20px 20px;
+        @media (max-width: $md3+px) {
+            margin: 0px 15px 15px 15px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid #e5e5e5;
+        background-color: $white;
+        transition: all 0.3s ease 0s;
+        color: $darkGrey;
+        @media (any-hover: hover) {
+            &:hover {
+                background-color: $gold;
+                color: $white;
+            }
+        }
+        &::before {
+            font-size: 14px;
+        }
+    }
+
+    &__bottom {
+        border-top: 1px solid #e5e5e5;
+        width: 100%;
+        text-align: center;
+        @include adaptiv-value("padding-top", 30, 15, 1);
+        @include adaptiv-value("padding-bottom", 30, 15, 1);
+    }
+    &__copy {
+        font-family: "PT Sans";
+        font-size: 14px;
+        line-height: 18 / 14 * 100%;
+        color: $darkGrey;
+    }
+}
