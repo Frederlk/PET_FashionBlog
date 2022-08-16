@@ -1,0 +1,58 @@
+@font-face {
+	font-family: "icons";
+	font-display: swap;
+	src: url("../fonts/icons.woff") format("woff"), url("../fonts/icons.woff2#icons") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+%ic {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+	&:before,
+	&::after {
+		@extend %ic;
+		display: block;
+	}
+}
+
+._icon-down::after {
+	content: "\e901";
+}
+._icon-facebook:before {
+	content: "\e900";
+}
+._icon-yt:before {
+	content: "\e902";
+}
+._icon-google:before {
+	content: "\e903";
+}
+._icon-instagram:before {
+	content: "\e904";
+}
+._icon-be:before {
+	content: "\e905";
+}
+._icon-twitter:before {
+	content: "\e906";
+}
+._icon-world:before {
+	content: "\e907";
+}
+._icon-vine:before {
+	content: "\e908";
+}
+._icon-pin:before {
+	content: "\e909";
+}
