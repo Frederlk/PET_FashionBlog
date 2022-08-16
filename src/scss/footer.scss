@@ -1,15 +1,9 @@
 .footer {
-    &__container {
-    }
-
-    &__body {
-    }
-
     &__logo {
         display: flex;
         justify-content: center;
         align-items: center;
-        @include adaptiv-value("margin-bottom", 60, 30, 1);
+        @include adaptiveValue("margin-bottom", 60, 30, 1170, 767.98, 1);
         img {
             max-width: 100%;
         }
@@ -19,20 +13,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        @include adaptiv-value("margin-bottom", 30, 20, 1);
+        @include adaptiveValue("margin-bottom", 30, 20, 1170, 767.98, 1);
         li {
             &:not(:last-child) {
-                @include adaptiv-value("margin-right", 35, 20, 1);
+                @include adaptiveValue("margin-right", 35, 20, 1170, 767.98, 1);
             }
         }
     }
 
     &__link {
         font-family: "PT Sans";
-        font-size: 14px;
-        line-height: 18 / 14 * 100%;
-        color: $darkGrey;
-        transition: all 0.3s ease 0s;
+        line-height: math.div(18, 14);
+        transition: color 0.3s ease 0s;
         @media (any-hover: hover) {
             &:hover {
                 color: $gold;
@@ -41,23 +33,13 @@
     }
 
     &__socials {
-        display: flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(6, rem(34));
+        gap: rem(20);
         justify-content: center;
-        @media (max-width: $md3+px) {
-            flex-wrap: wrap;
-        }
-        @include adaptiv-value("margin-bottom", 40, 30, 1);
-        @media (max-width: $md3+px) {
-            @include adaptiv-value("margin-bottom", 25, 15, 1);
-        }
-    }
-
-    &__column {
-        flex: 0 0 34px;
-        margin: 0px 20px 20px;
-        @media (max-width: $md3+px) {
-            margin: 0px 15px 15px 15px;
+        @include adaptiveValue("margin-bottom", 40, 15, 1170, 320, 1);
+        @media (max-width: $mobile) {
+            grid-template-columns: repeat(3, rem(34));
         }
     }
 
@@ -65,12 +47,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 34px;
-        height: 34px;
+        width: rem(34);
+        height: rem(34);
         border-radius: 50%;
-        border: 1px solid #e5e5e5;
+        border: rem(1) solid $gray_01;
         background-color: $white;
-        transition: all 0.3s ease 0s;
+        transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
         color: $darkGrey;
         @media (any-hover: hover) {
             &:hover {
@@ -79,21 +61,17 @@
             }
         }
         &::before {
-            font-size: 14px;
+            font-size: rem(14);
         }
     }
 
-    &__bottom {
-        border-top: 1px solid #e5e5e5;
+    &__copy {
+        border-top: rem(1) solid $gray_01;
         width: 100%;
         text-align: center;
-        @include adaptiv-value("padding-top", 30, 15, 1);
-        @include adaptiv-value("padding-bottom", 30, 15, 1);
-    }
-    &__copy {
+        @include adaptiveValue("padding-top", 30, 15, 1170, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 30, 15, 1170, 767.98, 1);
         font-family: "PT Sans";
-        font-size: 14px;
-        line-height: 18 / 14 * 100%;
-        color: $darkGrey;
+        line-height: math.div(18, 14);
     }
 }

@@ -1,804 +1,544 @@
-
 .main {
-	position: relative;
-	&__wrapper {
-		position: relative;
-		@include adaptiv-value("min-height", 700, 300, 1);
-	}
+    position: relative;
+    &__container {
+        position: relative;
+        z-index: 10;
+    }
 
-	&__content {
-		position: relative;
-		z-index: 10;
-	}
+    &__body {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        @include adaptiveValue("padding-top", 60, 20, 1170, 767.98, 1);
+        @include adaptiveValue("padding-bottom", 60, 20, 1170, 767.98, 1);
+        @include adaptiveValue("min-height", 700, 400, 1170, 767.98, 1);
+    }
 
-	&__container {
-	}
-
-	&__body {
-		display: flex;
-		justify-content: flex-end;
-		flex-direction: column;
-		@include adaptiv-value("padding-top", 60, 20, 1);
-		@include adaptiv-value("padding-bottom", 60, 20, 1);
-		@include adaptiv-value("min-height", 700, 400, 1);
-	}
-
-	&__bg {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		&::before {
-			content: "";
-			position: absolute;
-			width: 100%;
-			@include adaptiv-value("height", 300, 400, 1);
-			bottom: 0;
-			left: 0;
-			z-index: 2;
-			background: linear-gradient(180deg, rgba(0, 0, 0, 6.5e-5) 0%, rgba(0, 0, 0, 0.65) 100%);
-		}
-	}
+    &__bg-ibg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            @include adaptiveValue("height", 300, 400, 1170, 767.98, 1);
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 6.5e-5) 0%, rgba(0, 0, 0, 0.65) 100%);
+        }
+    }
 }
+
 .body-main {
-	@media (min-width: 580px) {
-		max-width: 560px;
-	}
-	&__category {
-		font-family: "PT Sans";
-		font-size: 14px;
-		line-height: 18 / 14 * 100%;
-		text-transform: uppercase;
-		color: $white;
-		transition: all 0.3s ease 0s;
-		&:not(:last-child) {
-			margin: 0px 0px 5px 0px;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
+    @media (min-width: rem(580)) {
+        max-width: rem(560);
+    }
+    &__category {
+        font-family: "PT Sans";
+        line-height: math.div(18, 14);
+        text-transform: uppercase;
+        color: $white;
+        transition: color 0.3s ease 0s;
+        &:not(:last-child) {
+            margin-bottom: rem(5);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
 
-	&__title {
-		font-weight: bold;
-		@include adaptiv-font(40, 34, 1);
-		line-height: 50 / 40 * 100%;
-		color: $white;
-		&:not(:last-child) {
-			margin: 0px 0px 10px 0px;
-		}
-	}
+    &__title {
+        font-weight: bold;
+        @include adaptiveValue("font-size", 40, 28, 1170, 479.98, 1);
+        line-height: math.div(50, 40);
+        color: $white;
+        &:not(:last-child) {
+            margin-bottom: rem(10);
+        }
+    }
 
-	&__bottom {
-		font-size: 14px;
-		line-height: 19px;
-		color: $white;
-		display: flex;
-		align-items: center;
-	}
+    &__bottom {
+        line-height: math.div(19, 14);
+        color: $white;
+        display: flex;
+        align-items: center;
+    }
 
-	&__date {
-		color: inherit;
-		margin: 0px 15px 0px 0px;
-	}
+    &__date {
+        color: inherit;
+        margin-right: rem(15);
+    }
 
-	&__by {
-		color: inherit;
-		margin: 0px 15px 0px 0px;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-		span {
-			color: #b4b4b4;
-			margin: 0px 5px 0px 0px;
-		}
-	}
+    &__by {
+        color: inherit;
+        margin-right: rem(15);
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+        span {
+            color: $gray_02;
+            margin-right: rem(5);
+        }
+    }
 
-	&__comments {
-		color: inherit;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
+    &__comments {
+        color: inherit;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
 }
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 
 .body {
-	&__container {
-	}
-	&__wrapper {
-		@media (min-width: $md2+px) {
-			display: flex;
-			justify-content: space-between;
-		}
-	}
+    &__container {
+        @media (min-width: $mobile) {
+            display: flex;
+            gap: rem(20);
+            justify-content: space-between;
+        }
+    }
 
-	&__content {
-		@media (min-width: $md2+px) {
-			flex: 0 1 770px;
-			margin: 0px 20px 0px 0px;
-		}
-	}
+    &__wrapper {
+        @media (min-width: $mobile) {
+            flex: 0 1 rem(770);
+        }
+    }
 
-	&__aside {
-		@media (min-width: $md2+px) {
-			flex: 0 0 270px;
-		}
-	}
-}
-//========================================================================================================================================================
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(30);
+        margin-bottom: rem(60);
+    }
 
-.content-body {
-	&__wrapper {
-		display: flex;
-		margin: 0px -15px;
-		flex-wrap: wrap;
-		justify-content: center;
-		@media (max-width: $md3+px) {
-			margin: 0px -10px;
-		}
-	}
+    &__item {
+        flex: 0 1 calc(50% - rem(15));
+        @media (max-width: $tablet) {
+            flex: 1 1 100%;
+        }
+        &._full {
+            flex: 1 1 100%;
+            .blog-item__image-ibg {
+                padding-bottom: percent(350, 700);
+            }
+            .blog-item__body {
+                text-align: left;
+                align-items: flex-start;
+                padding: rem(25) rem(30) rem(25) rem(30);
+                @media (max-width: $mobile) {
+                    padding: rem(15);
+                }
+            }
+        }
+    }
 
-	&__column {
-		flex: 0 1 50%;
-		padding: 0px 15px;
-		margin: 0px 0px 30px 0px;
-		@media (max-width: $md3+px) {
-			padding: 0px 10px;
-			margin: 0px 0px 20px 0px;
-		}
-		@media (max-width: $md4+px) {
-			flex: 1 1 100%;
-		}
-		&_full {
-			flex: 1 1 100%;
-			.content-body__image {
-				padding: 0px 0px 350 / 770 * 100% 0px;
-			}
-			.content-body__body {
-				text-align: left;
-				align-items: flex-start;
-				padding: 25px 30px 25px 30px;
-				@media (max-width: $md3+px) {
-					padding: 15px;
-				}
-			}
-		}
-	}
+    &__pagination {
+    }
 
-	&__inner {
-		filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.1));
-		background-color: $white;
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		@media (any-hover: hover) {
-			&:hover {
-				.content-body__image {
-					img {
-						transform: scale(1.05);
-					}
-				}
-			}
-		}
-	}
-
-	&__image {
-		display: block;
-		padding: 0px 0px 280 / 370 * 100% 0px;
-		overflow: hidden;
-		img {
-			transition: all 0.3s ease 0s;
-		}
-	}
-	&__body {
-		flex: 1 1 auto;
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		padding: 15px 40px 15px 40px;
-		align-items: center;
-		text-align: center;
-		@media (max-width: $md3+px) {
-			padding: 15px;
-		}
-	}
-
-	&__category {
-		display: inline-flex;
-		margin: 0px 0px 4px 0px;
-		font-family: "PT Sans";
-		font-size: 12px;
-		line-height: 16 / 12 * 100%;
-		text-transform: uppercase;
-		color: $gold;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $dark;
-			}
-		}
-	}
-
-	&__title {
-		flex: 1 1 auto;
-		margin: 0px 0px 10px 0px;
-		font-size: 20px;
-		line-height: 28 / 20 * 100%;
-		a {
-			color: $dark;
-			transition: all 0.3s ease 0s;
-			@media (any-hover: hover) {
-				&:hover {
-					color: $gold;
-				}
-			}
-		}
-	}
-
-	&__bottom {
-		font-size: 12px;
-		line-height: 16 / 12 * 100%;
-		color: $darkGrey;
-		&:not(:last-child) {
-			margin: 0px 0px 15px 0px;
-		}
-	}
-
-	&__date {
-		color: inherit;
-		&:not(:last-child) {
-			margin: 0px 15px 0px 0px;
-		}
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
-
-	&__name {
-		color: inherit;
-		transition: all 0.3s ease 0s;
-		&:not(:last-child) {
-			margin: 0px 15px 0px 0px;
-		}
-		span {
-			color: #b1b1b1;
-			margin: 0px 5px 0px 0px;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
-	&__comments {
-		color: inherit;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
-
-	&__text {
-		font-family: "PT Sans";
-		font-size: 14px;
-		line-height: 24 / 14 * 100%;
-		max-width: 615px;
-		@media (max-width: $md3+px) {
-			max-width: none;
-		}
-	}
-	&__pagination {
-	}
-}
-
-.pagination-fill {
-	display: flex;
-	justify-content: center;
-	height: 50px;
-	border: 1px solid #e5e5e5;
-	padding: 10px 25px;
-	margin: 30px 15px 0px 15px;
-	font-family: "HKGrotesk";
-	color: #a2a2a2;
-	@media (max-width: $md3+px) {
-		padding: 10px 5px 10px 25px;
-	}
-	@media (max-width: $md2+px) {
-		@include adaptiv-value("margin-bottom", 60, 40, 1);
-	}
-	&__list {
-		display: flex;
-		align-items: center;
-	}
-	&__prev {
-		display: flex;
-		align-items: center;
-		margin: 0px 30px 0px 0px;
-		cursor: pointer;
-		font-size: 14px;
-		line-height: 16 / 14 * 100%;
-		position: relative;
-		padding: 0px 0px 0px 20px;
-		transition: all 0.3s ease 0s;
-		@media (max-width: $md3+px) {
-			display: none;
-		}
-		&::after {
-			transform: rotate(90deg);
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: $dark;
-			}
-		}
-	}
-	&__number {
-		font-size: 16px;
-		margin: 0px 40px 0px 0px;
-		cursor: pointer;
-		transition: all 0.3s ease 0s;
-		@media (max-width: $md3+px) {
-			margin: 0px 20px 0px 0px;
-		}
-		&._active {
-			color: $dark;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: $dark;
-			}
-		}
-	}
-	&__dots {
-		@include adaptiv-value("margin-right", 40, 15, 1);
-		color: $dark;
-	}
-	&__next {
-		display: flex;
-		cursor: pointer;
-		align-items: center;
-		margin: 0px 0px 0px -10px;
-		transition: all 0.3s ease 0s;
-		&::after {
-			margin: 0px 0px 0px 10px;
-			transform: rotate(-90deg);
-		}
-		@media (max-width: $md3+px) {
-			display: none;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: $dark;
-			}
-		}
-	}
+    &__aside {
+        @media (min-width: $mobile) {
+            flex: 0 0 rem(270);
+        }
+    }
 }
 
 //========================================================================================================================================================
 
 .aside-body {
-	&__wrapper {
-	}
+    &__item {
+    }
 
-	&__item {
-		@include adaptiv-value("margin-bottom", 70, 30, 1);
-		@media (max-width: $md2+px) {
-			@include adaptiv-value("margin-bottom", 30, 20, 1);
-		}
-	}
+    &__wrap {
+        background-color: $white;
+        @include adaptiveValue("padding-bottom", 70, 20, 1170, 991.98, 1);
+    }
 
-	&__label {
-		font-size: 16px;
-		line-height: 21 / 16 * 100%;
-		text-align: center;
-		min-height: 50px;
-		border: 1px solid #e5e5e5;
-		color: $dark;
-		transition: all 0.3s ease 0s;
-		width: 100%;
-		margin: 0px 0px 20px 0px;
-		cursor: text;
-		position: relative;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0px 15px;
-		&::after {
-			display: none;
-		}
-		@media (max-width: $md2+px) {
-			text-align: left;
-			cursor: pointer;
-			justify-content: space-between;
-			&._active {
-				&::after {
-					transform: rotate(-180deg);
-					color: $gold;
-				}
-			}
-			&::after {
-				display: block;
-				transition: all 0.5s ease 0s;
-			}
-			@media (any-hover: hover) {
-				&:hover {
-					border: 1px solid $dark;
-				}
-			}
-		}
-	}
-
-	&__inner {
-		background-color: $white;
-	}
-
-	&__post {
-	}
+    &__label {
+        font-size: rem(16);
+        line-height: math.div(21, 16);
+        text-align: center;
+        min-height: rem(50);
+        border: rem(1) solid $gray_01;
+        color: $dark;
+        transition: border 0.3s ease 0s;
+        width: 100%;
+        margin-bottom: rem(20);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px rem(15);
+        &::after {
+            display: none;
+        }
+        @media (max-width: $mobile) {
+            text-align: left;
+            cursor: pointer;
+            justify-content: space-between;
+            &._spoller-active {
+                &::after {
+                    transform: rotate(-180deg);
+                    color: $gold;
+                }
+            }
+            &::after {
+                display: block;
+                transition: color 0.5s ease 0s, transform 0.5s ease 0s;
+            }
+            @media (any-hover: hover) {
+                &:hover {
+                    border: rem(1) solid $dark;
+                }
+            }
+        }
+    }
+    &__post {
+    }
 }
+
 .aside-author {
-	filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.1));
-	text-align: center;
-	&__image {
-		display: block;
-		padding: 0px 0px 180 / 270 * 100% 0px;
-		overflow: hidden;
-		@media (max-width: $md2+px) {
-			padding: 0px 0px 40% 0px;
-		}
-		img {
-			transition: all 0.3s ease 0s;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				img {
-					transform: scale(1.05);
-				}
-			}
-		}
-	}
+    box-shadow: 0 rem(2) rem(6) rgba(0, 0, 0, 0.1);
+    text-align: center;
+    &__image-ibg {
+        display: block;
+        padding-bottom: percent(180, 270);
+        overflow: hidden;
+        @media (max-width: $tablet) {
+            display: none;
+        }
+        img {
+            transition: transform 0.3s ease 0s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
 
-	&__body {
-		padding: 20px 20px 15px 20px;
-		border-bottom: 1px solid #e5e5e5;
-	}
+    &__body {
+        padding: rem(20) rem(20) rem(15) rem(20);
+        border-bottom: rem(1) solid $gray_01;
+    }
 
-	&__name {
-		display: block;
-		font-weight: bold;
-		font-size: 16px;
-		line-height: 21 / 16 * 100%;
-		color: $dark;
-		&:not(:last-child) {
-			margin: 0px 0px 5px 0px;
-		}
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
+    &__name {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: math.div(21, 16);
+        color: $dark;
+        &:not(:last-child) {
+            margin-bottom: rem(5);
+        }
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
 
-	&__type {
-		font-style: italic;
-		font-size: 14px;
-		line-height: 19 /14 * 100%;
-		color: #b1b1b1;
-		&:not(:last-child) {
-			margin: 0px 0px 15px 0px;
-		}
-	}
+    &__type {
+        font-style: italic;
+        line-height: math.div(19, 14);
+        color: $gray_03;
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
 
-	&__text {
-		font-family: "PT Sans";
-		font-size: 14px;
-		line-height: 24 / 14 * 100%;
-		color: $darkGrey;
-	}
+    &__text {
+        font-family: "PT Sans";
+        line-height: math.div(24, 14);
+    }
 
-	&__continue {
-		display: block;
-		font-size: 12px;
-		line-height: 16 / 12 * 100%;
-		text-transform: uppercase;
-		padding: 12px;
-		color: $gold;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $dark;
-			}
-		}
-	}
+    &__continue {
+        display: block;
+        font-size: rem(12);
+        line-height: math.div(16, 12);
+        text-transform: uppercase;
+        padding: rem(12);
+        color: $gold;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $dark;
+            }
+        }
+    }
 }
+
 .post-aside {
-	filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.1));
-	background-color: $white;
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	align-items: center;
-	margin: 0px 0px 30px 0px;
-	&__image {
-		padding: 0px 0px 160 / 270 * 100% 0px;
-		width: 100%;
-		display: block;
-		overflow: hidden;
-		@media (max-width: $md2+px) {
-			padding: 0px 0px 40% 0px;
-		}
-		img {
-			transition: all 0.3s ease 0s;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				img {
-					transform: scale(1.05);
-				}
-			}
-		}
-	}
+    box-shadow: 0 rem(2) rem(6) rgba(0, 0, 0, 0.1);
+    background-color: $white;
+    text-align: center;
+    margin-bottom: rem(30);
+    &__image-ibg {
+        padding-bottom: percent(160, 270);
+        display: block;
+        overflow: hidden;
+        @media (max-width: $tablet) {
+            padding-bottom: 40%;
+        }
+        img {
+            transition: transform 0.3s ease 0s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
 
-	&__body {
-		padding: 15px 10px;
-	}
+    &__body {
+        padding: rem(15) rem(10);
+    }
 
-	&__category {
-		font-family: "PT Sans";
-		display: inline-flex;
-		margin: 0px 0px 5px 0px;
-		font-size: 12px;
-		line-height: 16 / 12 * 100%;
-		text-transform: uppercase;
-		color: $gold;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $dark;
-			}
-		}
-	}
+    &__category {
+        font-family: "PT Sans";
+        display: block;
+        margin-bottom: rem(5);
+        font-size: rem(12);
+        line-height: math.div(16, 12);
+        text-transform: uppercase;
+        color: $gold;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $dark;
+            }
+        }
+    }
 
-	&__title {
-		font-size: 18px;
-		line-height: 26 / 18 * 100%;
-		color: $dark;
-		display: inline-flex;
-		flex: 1 1 auto;
-		margin: 0px 0px 10px 0px;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
+    &__title {
+        font-size: rem(18);
+        line-height: math.div(26, 18);
+        color: $dark;
+        display: inline-flex;
+        flex: 1 1 auto;
+        margin-bottom: rem(10);
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
 
-	&__bottom {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+    &__bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-	&__date {
-		color: $darkGrey;
-		margin: 0px 15px 0px 0px;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
+    &__date {
+        color: $darkGrey;
+        margin-right: rem(15);
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
 
-	&__by {
-		color: $darkGrey;
-		font-size: 12px;
-		line-height: 16 / 12 * 100%;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-		span {
-			color: #b1b1b1;
-			margin: 0px 5px 0px 0px;
-		}
-	}
+    &__by {
+        color: $darkGrey;
+        font-size: rem(12);
+        line-height: math.div(16, 12);
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+        span {
+            color: $gray_03;
+            margin-right: rem(5);
+        }
+    }
 }
+
 .categories-aside {
-	&__item {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		font-size: 14px;
-		line-height: 19 / 14 * 100%;
-		color: $darkGrey;
-		transition: all 0.3s ease 0s;
-		&:not(:last-child) {
-			padding: 0px 0px 15px 0px;
-			border-bottom: 1px solid #e5e5e5;
-			margin: 0px 0px 15px 0px;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        line-height: math.div(19, 14);
+        transition: color 0.3s ease 0s;
+        &:not(:last-child) {
+            padding-bottom: rem(15);
+            margin-bottom: rem(15);
+            border-bottom: rem(1) solid $gray_01;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
 
-	&__category {
-		margin: 0px 20px 0px 0px;
-	}
+    &__category {
+        margin-right: rem(20);
+    }
 
-	&__number {
-	}
+    &__number {
+    }
 }
+
 .social-aside {
-	&__body {
-		display: flex;
-		flex-wrap: wrap;
-		margin: 0px -2px;
-	}
-	&__column {
-		flex: 0 1 33.333%;
-		padding: 0px 2px;
-		margin: 0px 0px 4px 0px;
-	}
-	&__item {
-		padding: 17px 10px 13px 10px;
-		text-align: center;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		height: 100%;
-		background-color: #f8f9fa;
-		@media (any-hover: hover) {
-			&:hover {
-				.social-aside__icon {
-					color: $gold;
-				}
-			}
-		}
-	}
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(3);
+    &__item {
+        padding: rem(17) rem(10) rem(13) rem(10);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        background-color: $gray_06;
+        @media (any-hover: hover) {
+            &:hover {
+                .social-aside__icon {
+                    color: $gold;
+                }
+            }
+        }
+    }
 
-	&__icon {
-		&._icon-be {
-			&::before {
-				font-size: 15px;
-			}
-		}
-		margin: 0px 0px 6px 0px;
-		color: #5a5a5a;
-		transition: all 0.3s ease 0s;
-		&::before {
-			font-size: 20px;
-		}
-	}
+    &__icon {
+        &._icon-be {
+            &::before {
+                font-size: rem(15);
+            }
+        }
+        margin-bottom: rem(6);
+        color: #5a5a5a;
+        transition: all 0.3s ease 0s;
+        &::before {
+            font-size: rem(20);
+        }
+    }
 
-	&__number,
-	&__text {
-		font-family: "PT Sans";
-		font-size: 12px;
-		line-height: 16 / 12 * 100%;
-		color: #999999;
-	}
+    &__number,
+    &__text {
+        font-family: "PT Sans";
+        font-size: rem(12);
+        line-height: math.div(16, 12);
+        color: $gray_05;
+    }
 
-	&__text {
-	}
+    &__text {
+    }
 }
+
 .tags-aside {
-	&__body {
-		margin: 0px -10px;
-		padding: 0px 0px 0px 10px;
-		display: flex;
-		flex-wrap: wrap;
-	}
-	&__tag {
-		margin: 0px 10px 10px 0px;
-		font-size: 14px;
-		line-height: 19 / 14 * 100%;
-		color: $darkGrey;
-		padding: 5px 14px;
-		background: #f8f9fa;
-		transition: all 0.3s ease 0s;
-		@media (any-hover: hover) {
-			&:hover {
-				color: $gold;
-			}
-		}
-	}
+    gap: rem(10);
+    display: flex;
+    flex-wrap: wrap;
+    &__tag {
+        line-height: math.div(19, 14);
+        padding: rem(5) rem(14);
+        background: $gray_06;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
 }
 
 //========================================================================================================================================================
 
 .gallery {
-	&__wrapper {
-	}
+    &__title {
+        text-align: center;
+        @include adaptiveValue("margin-bottom", 40, 30, 1170, 767.98, 1);
+        font-size: rem(24);
+        line-height: math.div(32, 24);
+        a {
+            color: $dark;
+            transition: all 0.3s ease 0s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                a {
+                    color: $gold;
+                }
+            }
+        }
+    }
 
-	&__title {
-		text-align: center;
-		@include adaptiv-value("margin-bottom", 40, 30, 1);
-		font-size: 24px;
-		line-height: 32 / 24 * 100%;
-		a {
-			color: $dark;
-			transition: all 0.3s ease 0s;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				a {
-					color: $gold;
-				}
-			}
-		}
-	}
+    &__body {
+        display: grid;
+        padding: 0 rem(20);
+        grid-template-columns: repeat(6, 1fr);
+        gap: rem(20);
+        @media (max-width: $pc) {
+            padding: 0px rem(15);
+        }
+        @media (max-width: $tablet) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+        @media (max-width: $mobile) {
+            gap: rem(10);
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @media (max-width: $mobileSmall) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 
-	&__body {
-		padding: 0 20px;
-		display: flex;
-		margin: 0px -10px;
-		@media (max-width: $md1+px) {
-			padding: 0px 15px;
-		}
-		@media (max-width: $md3+px) {
-			flex-wrap: wrap;
-		}
-	}
-
-	&__column {
-		flex: 0 1 16.666%;
-		padding: 0px 10px;
-		@media (max-width: $md2+px) {
-			flex: 1 1 20%;
-			&:nth-child(1) {
-				display: none;
-			}
-		}
-		@media (max-width: $md3+px) {
-			flex: 0 1 50%;
-			margin: 0px 0px 20px 0px;
-			&:nth-child(2) {
-				display: none;
-			}
-		}
-	}
-
-	&__item {
-		display: block;
-		padding: 0px 0px 100% 0px;
-		overflow: hidden;
-		img {
-			transition: all 0.3s ease 0s;
-		}
-		@media (any-hover: hover) {
-			&:hover {
-				img {
-					transform: scale(1.05);
-				}
-			}
-		}
-	}
+    &__item-ibg {
+        display: block;
+        padding-bottom: 100%;
+        overflow: hidden;
+        img {
+            transition: transform 0.3s ease 0s;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+        @media (max-width: $tablet) {
+            &:nth-child(1) {
+                display: none;
+            }
+        }
+        @media (max-width: $mobile) {
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            &:nth-child(1),
+            &:nth-child(2) {
+                display: block;
+            }
+        }
+    }
 }

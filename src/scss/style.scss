@@ -19,10 +19,17 @@
 $fontFamily: "PT Serif";
 $fontSize: rem(14); // где 14(px) - размер шрифта по умолчанию из макета
 
-// Основные цвета$white: #fff;
+// Основные цвета
+$white: #fff;
 $black: #000;
 $dark: #171717;
 $darkGrey: #666666;
+$gray_01: #e5e5e5;
+$gray_02: #b4b4b4;
+$gray_03: #b1b1b1;
+$gray_04: #a2a2a2;
+$gray_05: #999999;
+$gray_06: #f8f9fa;
 $gold: #c9a96e;
 $mainColor: $darkGrey; // Цвет шрифта по умолчанию
 
@@ -62,20 +69,6 @@ body {
     }
     // Сайт загружен
     .loaded & {
-    }
-    &._scroll {
-        .header__body {
-            min-height: 60px;
-            @media (max-width: $md4+px) {
-                min-height: 50px;
-            }
-        }
-        .page__main {
-            padding: 60px 0px 0px 0px;
-            @media (max-width: $md4+px) {
-                padding: 50px 0px 0px 0px;
-            }
-        }
     }
 }
 
@@ -159,23 +152,12 @@ body {
 
 .page {
     &__main {
-        padding: 100px 0px 0px 0px;
-        transition: padding 0.8s ease 0s;
-        @include adaptiv-value("margin-bottom", 60, 40, 1);
-        @media (max-width: $md2+px) {
-            padding: 80px 0px 0px 0px;
-        }
-        @media (max-width: $md3+px) {
-            padding: 60px 0px 0px 0px;
-        }
-        @media (max-width: $md4+px) {
-            padding: 50px 0px 0px 0px;
-        }
+        @include adaptiveValue("margin-bottom", 60, 40, 1170, 767.98, 1);
     }
     &__body {
-        @include adaptiv-value("margin-bottom", 80, 60, 1);
+        @include adaptiveValue("margin-bottom", 80, 60, 1170, 767.98, 1);
     }
     &__gallery {
-        @include adaptiv-value("margin-bottom", 100, 60, 0);
+        @include adaptiveValue("margin-bottom", 100, 60, 1170, 767.98, 1);
     }
 }

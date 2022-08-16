@@ -1,1 +1,125 @@
-// Заголовки, общие БЄМ блоки и проче...
+.blog-item {
+    box-shadow: 0 rem(2) rem(6) rgba(0, 0, 0, 0.1);
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    @media (any-hover: hover) {
+        &:hover {
+            .blog-item__image-ibg {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    &__image-ibg {
+        display: block;
+        padding-bottom: percent(280, 370);
+        overflow: hidden;
+        img {
+            transition: transform 0.3s ease 0s;
+        }
+    }
+    &__body {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: rem(15) rem(40);
+        align-items: center;
+        text-align: center;
+        @media (max-width: $mobile) {
+            padding: rem(15);
+        }
+    }
+
+    &__category {
+        display: inline-flex;
+        margin-bottom: rem(4);
+        font-family: "PT Sans";
+        font-size: rem(12);
+        line-height: math.div(16, 12);
+        text-transform: uppercase;
+        color: $gold;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $dark;
+            }
+        }
+    }
+
+    &__title {
+        flex: 1 1 auto;
+        margin-bottom: rem(10);
+        font-size: rem(20);
+        line-height: math.div(28, 20);
+        a {
+            color: $dark;
+            transition: color 0.3s ease 0s;
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $gold;
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        font-size: rem(12);
+        line-height: math.div(16, 12);
+        color: $darkGrey;
+        &:not(:last-child) {
+            margin-bottom: rem(15);
+        }
+    }
+
+    &__date {
+        color: inherit;
+        &:not(:last-child) {
+            margin-right: rem(15);
+        }
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
+
+    &__name {
+        color: inherit;
+        transition: color 0.3s ease 0s;
+        &:not(:last-child) {
+            margin-right: rem(15);
+        }
+        span {
+            color: $gray_03;
+            margin-right: rem(5);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
+    &__comments {
+        color: inherit;
+        transition: color 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
+
+    &__text {
+        font-family: "PT Sans";
+        line-height: math.div(24, 14);
+        @media (min-width: $mobile) {
+            max-width: rem(615);
+        }
+    }
+}

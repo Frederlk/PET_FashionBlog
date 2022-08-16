@@ -1,19 +1,81 @@
-.pagging {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	// .pagging__arrow
-	&__arrow {
-	}
-	// .pagging__list
-	&__list {
-		display: flex;
-		li {
-		}
-	}
-	// .pagging__item
-	&__item {
-		&._active {
-		}
-	}
+.pagination-fill {
+    display: flex;
+    justify-content: center;
+    max-width: rem(520);
+    height: rem(50);
+    border: rem(1) solid $gray_01;
+    padding: rem(10) rem(25);
+    margin: 0px auto;
+    font-family: "HKGrotesk";
+    color: $gray_04;
+    @media (max-width: $mobile) {
+        padding: rem(10) rem(5);
+    }
+    @media (max-width: $tablet) {
+        @include adaptiveValue("margin-bottom", 60, 40, 1170, 767.98, 1);
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        @include adaptiveValue("gap", 30, 20, 1170, 767.98, 1);
+    }
+    &__prev {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        gap: rem(10);
+        cursor: pointer;
+        line-height: math.div(16, 14);
+        transition: color 0.3s ease 0s;
+        &::after {
+            transform: rotate(90deg);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $dark;
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            span {
+                display: none;
+            }
+        }
+    }
+    &__number {
+        font-size: rem(16);
+        cursor: pointer;
+        transition: color 0.3s ease 0s;
+        &._active {
+            color: $dark;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $dark;
+            }
+        }
+    }
+    &__dots {
+        color: $dark;
+    }
+    &__next {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        gap: rem(10);
+        align-items: center;
+        transition: color 0.3s ease 0s;
+        &::after {
+            transform: rotate(-90deg);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                color: $dark;
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            span {
+                display: none;
+            }
+        }
+    }
 }
