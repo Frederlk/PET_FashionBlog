@@ -1,137 +1,70 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Верстка «NEW_PROJECT_NAME»</title>
-    </head>
-    <body>
-        <div class="rootpage">
-            <h1>«NEW_PROJECT_NAME»</h1>
-            <div class="rootpage__info">Project Features</div>
-            <h2>Pages:</h2>
-            <ol class="rootpage__list">
-                <li><a target="_blank" href="home.html">Home Page</a></li>
-            </ol>
-            <div class="rootpage__contacts">
-                <h2>My contacts:</h2>
-                <p>Email: <a href="mailto:pertrinichshadow@gmail.com">pertrinichshadow@gmail.com</a></p>
-                <p>Phone: <a href="tel:375256474526">+375256474526</a></p>
-                <p>Social network: <a href="">Link to social network</a></p>
-            </div>
-        </div>
-    </body>
-    <style>
-        @charset "UTF-8";
-        @import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700&display=swap");
-        *,
-        *::before,
-        *::after {
-            padding: 0px;
-            margin: 0px;
-            border: 0px;
-            box-sizing: border-box;
-        }
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            min-width: 320px;
-            width: 100%;
-            color: #fff;
-            background-color: #5e5373;
-        }
-        body {
-            font-family: Montserrat;
-            font-size: 100%;
-            line-height: 1;
-            font-size: 1rem;
-        }
-        a {
-            text-decoration: underline;
-            color: #ebe691;
-        }
-        a:visited {
-            text-decoration: underline;
-            color: #aaa768;
-        }
-        a:hover {
-            text-decoration: none;
-        }
-        ul li {
-            list-style: none;
-        }
-        img {
-            vertical-align: top;
-        }
-        .wrapper {
-            width: 100%;
-            min-height: 100%;
-            overflow: hidden;
-        }
-        .rootpage {
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        @media (max-width: 767px) {
-            .rootpage {
-                padding: 30px 15px;
-            }
-        }
-        h1 {
-            color: #ebe691;
-            font-size: 2.5rem;
-            margin: 0px 0px 1.25rem 0px;
-        }
-        @media (max-width: 767px) {
-            h1 {
-                font-size: 1.85rem;
-                margin: 0px 0px 1.25rem 0px;
-            }
-        }
-        h2 {
-            color: #ebe691;
-            font-size: 1.25rem;
-            margin: 0px 0px 1rem 0px;
-        }
-        @media (max-width: 767px) {
-            h2 {
-                font-size: 1.125rem;
-                margin: 0px 0px 1rem 0px;
-            }
-        }
-        .rootpage__info {
-            line-height: 140%;
-            margin: 0px 0px 1.5rem 0px;
-        }
+<html lang="en">
+    @@include('html/_head.htm',{ "title":"Fashion Blog" })
 
-        .rootpage__list {
-            margin: 0px 0px 2.25rem 1.25rem;
-        }
-        .rootpage__list li:not(:last-child) {
-            margin: 0px 0px 15px 0px;
-        }
-        .rootpage__contacts,
-        .rootpage__tnx {
-            border-radius: 200px;
-            padding: 20px 65px;
-            line-height: 140%;
-        }
-        @media (max-width: 767px) {
-            .rootpage__contacts,
-            .rootpage__tnx {
-                border-radius: 40px;
-                padding: 20px;
-            }
-        }
-        .rootpage__contacts {
-            background: #32b5a4;
-        }
-        .rootpage__contacts a {
-            color: #ebe691;
-        }
-    </style>
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.htm',{})
+            <main class="page">
+                <section class="page__main main">
+                    <div class="main__container">
+                        <div class="main__body body-main">
+                            <a href="#" class="body-main__category">Vehicle</a>
+                            <h1 class="body-main__title">One of Saturn’s largest rings may be newer than anyone</h1>
+                            <div class="body-main__bottom">
+                                <div class="body-main__date">June 6, 2019</div>
+                                <a href="#" class="body-main__by"> <span>By</span>Rickie Baroch </a>
+                                <a href="#" class="body-main__comments">4 comments</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main__bg-ibg">
+                        <img src="@img/bg.jpg" alt="background" />
+                    </div>
+                </section>
+
+                <div class="page__body body">
+                    <div class="body__container">
+                        <div class="body__wrapper">
+                            <section class="body__content"></section>
+
+                            <div class="body__pagination pagination-fill">
+                                <ul class="pagination-fill__list"></ul>
+                            </div>
+                        </div>
+
+                        @@include('html/_aside.htm',{})
+                    </div>
+                </div>
+
+                <section class="page__gallery gallery">
+                    <h2 class="gallery__title">
+                        <a href="#">Follow our @instagram_name</a>
+                    </h2>
+                    <div class="gallery__body" data-gallery="">
+                        <a href="@img/gallery/01.jpg" class="gallery__item-ibg">
+                            <img src="@img/gallery/01.jpg" alt="gallery_01" />
+                        </a>
+                        <a href="@img/gallery/02.jpg" class="gallery__item-ibg">
+                            <img src="@img/gallery/02.jpg" alt="gallery_02" />
+                        </a>
+                        <a href="@img/gallery/03.jpg" class="gallery__item-ibg">
+                            <img src="@img/gallery/03.jpg" alt="gallery_03" />
+                        </a>
+                        <a href="@img/gallery/04.jpg" class="gallery__item-ibg">
+                            <img src="@img/gallery/04.jpg" alt="gallery_04" />
+                        </a>
+                        <a href="@img/gallery/05.jpg" class="gallery__item-ibg">
+                            <img src="@img/gallery/05.jpg" alt="gallery_05" />
+                        </a>
+                        <a href="@img/gallery/06.jpg" class="gallery__item-ibg">
+                            <img src="@img/gallery/06.jpg" alt="gallery_06" />
+                        </a>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.htm',{})
+        </div>
+        @@include('html/_js.htm',{})
+    </body>
 </html>
